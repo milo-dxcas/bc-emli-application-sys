@@ -45,13 +45,13 @@ body:
     validations:
       required: true
 
-  - type: datetime
+  - type: input
     id: timeline
     attributes:
       label: "⏰ Timeline / Detection"
-      description: "When did this start? When was it detected?"
-      placeholder: "Select start date/time"
-      
+      description: "When did this start? When was it detected? Use format YYYY-MM-DD HH:MM"
+      placeholder: "e.g., 2025-09-22 10:30"
+
   - type: textarea
     id: actions_taken
     attributes:
@@ -62,23 +62,18 @@ body:
   - type: input
     id: contact
     attributes:
-      label: "📞 Point of contact"
+      label: "📞 Point of contact *"
       description: "Name / email / Slack handle"
       placeholder: "Jane Doe / @jdoe / jdoe@example.com"
     validations:
       required: true
 
-  - type: checkbox
+  - type: dropdown
     id: security_related
     attributes:
       label: "🔒 Security-related incident?"
-      description: "Check if this incident involves security concerns"
+      description: "Select if this incident involves security concerns"
       options:
         - "Yes"
-
-  - type: file
-    id: screenshots
-    attributes:
-      label: "🖼️ Attach screenshots or files"
-      description: "Optional: Upload screenshots, logs, or any supporting files"
-      multiple: true
+        - "No"
+      default: "No"
