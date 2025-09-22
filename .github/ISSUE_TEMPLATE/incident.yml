@@ -6,12 +6,14 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thanks for reporting an incident. Please fill out the required fields below so the support team can triage quickly.
+        **Thanks for reporting an incident!**  
+        Please fill out all required fields (marked with *) so the support team can triage quickly.  
+        If unsure, add as much detail as possible — it helps resolve issues faster!  
 
   - type: input
     id: short_summary
     attributes:
-      label: "Short summary"
+      label: "📝 Short summary *"
       description: "One-line summary of the incident (e.g., 'Login service outage')"
       placeholder: "Login service outage"
     validations:
@@ -20,42 +22,63 @@ body:
   - type: dropdown
     id: severity
     attributes:
-      label: "Severity level"
-      description: "Select how critical this is"
+      label: "⚠️ Severity level *"
+      description: "Select how critical this incident is"
       options:
-        - "P1 - Critical"
-        - "P2 - High"
-        - "P3 - Medium"
-        - "P4 - Low"
+        - label: "P1 - Critical"
+          value: "P1"
+        - label: "P2 - High"
+          value: "P2"
+        - label: "P3 - Medium"
+          value: "P3"
+        - label: "P4 - Low"
+          value: "P4"
     validations:
       required: true
 
   - type: textarea
     id: impact
     attributes:
-      label: "Impact"
-      description: "Who/what is affected and any scope/scale details (e.g., participants, contractors, admins/admin managers)."
+      label: "🌐 Impact *"
+      description: "Who/what is affected and the scope/scale (participants, contractors, admins/admin managers, etc.)"
       placeholder: "E.g., participants cannot submit applications"
     validations:
       required: true
 
-  - type: textarea
+  - type: datetime
     id: timeline
     attributes:
-      label: "Timeline / detection"
+      label: "⏰ Timeline / Detection"
       description: "When did this start? When was it detected?"
-      placeholder: "e.g., Started 10:30 AM; alerted by monitoring at 10:45 AM"
-
+      placeholder: "Select start date/time"
+      
   - type: textarea
     id: actions_taken
     attributes:
-      label: "Actions taken so far"
-      description: "What has been tried / who was contacted / any temporary mitigations"
+      label: "🛠️ Actions taken so far"
+      description: "What has been tried, who was contacted, and any temporary mitigations"
       placeholder: "E.g., restarted service, escalated to on-call"
 
   - type: input
     id: contact
     attributes:
-      label: "Point of contact"
-      description: "Name/email/Slack handle"
+      label: "📞 Point of contact"
+      description: "Name / email / Slack handle"
       placeholder: "Jane Doe / @jdoe / jdoe@example.com"
+    validations:
+      required: true
+
+  - type: checkbox
+    id: security_related
+    attributes:
+      label: "🔒 Security-related incident?"
+      description: "Check if this incident involves security concerns"
+      options:
+        - "Yes"
+
+  - type: file
+    id: screenshots
+    attributes:
+      label: "🖼️ Attach screenshots or files"
+      description: "Optional: Upload screenshots, logs, or any supporting files"
+      multiple: true
