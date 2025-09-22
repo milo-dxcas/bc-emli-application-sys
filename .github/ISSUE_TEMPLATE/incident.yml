@@ -6,9 +6,12 @@ body:
   - type: markdown
     attributes:
       value: |
-        **Thanks for reporting an incident!**  
-        Please fill out all required fields (marked with *) so the support team can triage quickly.  
-        If unsure, add as much detail as possible — it helps resolve issues faster!  
+        ## 🚨 Incident Report Form
+        Please fill out all required fields (*).  
+        If unsure, provide as much detail as possible — it helps us resolve issues faster!
+
+        ---
+        ### 📝 Incident Details
 
   - type: input
     id: short_summary
@@ -77,3 +80,13 @@ body:
         - "Yes"
         - "No"
       default: 1
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        #### 💡 Notes
+        - Attach screenshots or logs as comments below this form.  
+      
