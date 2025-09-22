@@ -76,4 +76,4 @@ body:
       options:
         - "Yes"
         - "No"
-      default: "No"
+      default: 1
