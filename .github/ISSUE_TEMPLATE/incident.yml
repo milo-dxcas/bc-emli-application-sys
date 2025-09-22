@@ -1,0 +1,61 @@
+name: "🚨 Incident Report"
+description: "Use this form to report a new incident (production outages, security incidents, etc.)."
+title: "[Incident]"
+labels: ["incident", "triage-needed"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting an incident. Please fill out the required fields below so the support team can triage quickly.
+
+  - type: input
+    id: short_summary
+    attributes:
+      label: "Short summary"
+      description: "One-line summary of the incident (e.g., 'Login service outage')"
+      placeholder: "Login service outage"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: "Severity level"
+      description: "Select how critical this is"
+      options:
+        - "P1 - Critical"
+        - "P2 - High"
+        - "P3 - Medium"
+        - "P4 - Low"
+    validations:
+      required: true
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: "Impact"
+      description: "Who/what is affected and any scope/scale details (e.g., participants, contractors, admins/admin managers)."
+      placeholder: "E.g., participants cannot submit applications"
+    validations:
+      required: true
+
+  - type: textarea
+    id: timeline
+    attributes:
+      label: "Timeline / detection"
+      description: "When did this start? When was it detected?"
+      placeholder: "e.g., Started 10:30 AM; alerted by monitoring at 10:45 AM"
+
+  - type: textarea
+    id: actions_taken
+    attributes:
+      label: "Actions taken so far"
+      description: "What has been tried / who was contacted / any temporary mitigations"
+      placeholder: "E.g., restarted service, escalated to on-call"
+
+  - type: input
+    id: contact
+    attributes:
+      label: "Point of contact"
+      description: "Name/email/Slack handle"
+      placeholder: "Jane Doe / @jdoe / jdoe@example.com"
